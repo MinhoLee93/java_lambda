@@ -15,16 +15,8 @@ public class Exercise {
                 new Person("Matthew", "Arnold", 39)
         );
 
-        // step 1 : Sort list by last name
-        Collections.sort(people, (o1, o2) -> o1.getLastName().compareTo(o2.getLastName()));
-
-        // step 2 : Create a method that prints all elements in the list
-        printConditionally(people, (p) -> true, p-> System.out.println(p));
-
-
-        // step 3 : Create a method that prints all people that have last name beginning with C
-        printConditionally(people, p -> p.getLastName().startsWith("C"), (p)-> System.out.println(p));
-
+        // lambda
+        printConditionally(people, (p) -> true, System.out::println);
     }
 
     private static void printConditionally(List<Person> people, Predicate<Person> condition, Consumer<Person> action) {
